@@ -1,0 +1,45 @@
+{
+    "manifest_version": 2,
+    "name": "mrs.hudson",
+    "description": "Browser extension for easy testing web applications",
+    "version": "0.1.0",
+    "permissions": [
+        "tabs",
+        "cookies",
+        "notifications",
+        "http://*/*",
+        "https://*/*"
+    ],
+    "content_scripts": [
+        {
+            "js": [
+                "page.bundle.js"
+            ],
+            "css" : [
+                "page.css"
+            ],
+            "matches": ["<all_urls>"]
+        }
+    ],
+    "web_accessible_resources": [
+        "manager.html",
+        "manager.css",
+        "manager.bundle.js"
+    ],
+    "background": {
+        "scripts": [
+            "background.bundle.js"
+        ],
+        "persistent": true
+    },
+    "browser_action": {
+        "default_title": "mrs.hudson",
+        "default_icon": {
+            "19": "icons/grey_19.png"
+        }
+    },
+    "icons": {
+        "48": "icons/white_48.png"
+    },
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+}
